@@ -30,7 +30,7 @@ const managers = [ {
     'city' : 'Moskow'
 } ]
 
-async function fillFormUsingJson (manager) {
+async function createMnager (manager) {
     await $('//*[@id="first-nav-block"]/*[8]').click()
     await $('//*[@id="email"]').setValue(manager.email)
     await $('//*[@id="password"]').setValue(manager.password)
@@ -87,11 +87,11 @@ describe ('user creation behaviour', function () {
     })
     context ('create manager', async function () {
         it ('should create first manager without error', async function () {
-            await fillFormUsingJson(managers[0])
+            await createMnager(managers[0])
             await assertManager(managers[0])
         })
         it ('should create second manager without error', async function () {
-            await fillFormUsingJson(managers[1])
+            await createMnager(managers[1])
             await assertManager(managers[1])
         })
     })
